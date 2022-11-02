@@ -1,9 +1,12 @@
 <script lang="ts">
   import logout from "$lib/images/logout.svg";
   import menu from "$lib/images/menu.svg";
-  export let name: string = "Minh Phương";
-  export let avatar: string =
-    "https://bulma.io/images/placeholders/128x128.png";
+  import { config } from "$lib/stores/common";
+  import type { User } from "$lib/types/common";
+  import { initRoutes, routes } from "$lib/stores/route";
+  
+  export let user: User;
+  export let onToggleMenu: any;
 
   let isFocus: boolean = false;
 
@@ -15,6 +18,10 @@
     event.stopPropagation();
     isFocus = !isFocus;
   };
+
+  const onClickLogo = () => {
+    $routes = initRoutes
+  };
 </script>
 
 <svelte:window on:click={onClose} />
@@ -23,22 +30,19 @@
 >
   <div class="p-3">
     <div class="is-flex is-mobile">
-      <a href="/" class="is-flex has-text-white is-align-items-center">
-        <img
-          src={"https://media.sellycdn.net/files/md_445646269301_1617593312837.png"}
-          alt="Selly"
-          class="logo"
-        />
+      <a href="/about" class="is-flex has-text-white is-align-items-center" on:click={onClickLogo}>
+        <img src={config.logo} alt={config.name} class="logo" />
         <h1
           class="is-inline-desktop is-hidden-mobile pl-3 is-size-5 has-text-weight-bold"
         >
-          Selly
+          {config.name}
         </h1>
       </a>
       <button
-        class="button is-primary ml-3 is-hidden-desktop"
+        class="button has-background-black ml-3 is-hidden-desktop is-primary is-inverted"
         aria-haspopup="true"
         aria-controls="dropdown-menu"
+        on:click={onToggleMenu}
       >
         <img src={menu} alt="menu" class="mini-logo" />
       </button>
@@ -53,9 +57,9 @@
         on:click={onClick}
       >
         <figure class="image is-38x38 pr-2">
-          <img class="is-rounded avatar" src={avatar} alt="avatar" />
+          <img class="is-rounded avatar" src={user.avatar} alt="avatar" />
         </figure>
-        <span class="has-text-white is-size-6">{name}</span>
+        <span class="has-text-white is-size-6">{user.name}</span>
       </button>
     </div>
     <div id="right-header" class="is-flex is-justify-content-end">

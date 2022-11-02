@@ -4,6 +4,7 @@ specifiers:
   '@fontsource/fira-mono': ^4.5.0
   '@neoconfetti/svelte': ^1.0.0
   '@sveltejs/adapter-auto': next
+  '@sveltejs/adapter-static': 1.0.0-next.47
   '@sveltejs/kit': next
   '@tsconfig/svelte': ^3.0.0
   '@types/cookie': ^0.5.1
@@ -22,6 +23,9 @@ specifiers:
   tslib: ^2.3.1
   typescript: ^4.8.4
   vite: ^3.1.0
+
+dependencies:
+  '@sveltejs/adapter-static': 1.0.0-next.47
 
 devDependencies:
   '@fontsource/fira-mono': 4.5.10
@@ -204,6 +208,10 @@ packages:
       esbuild: 0.15.12
       set-cookie-parser: 2.5.1
     dev: true
+
+  /@sveltejs/adapter-static/1.0.0-next.47:
+    resolution: {integrity: sha512-pYY9/FhJAIWB3BXnLoKXj5yMZjQjtD9ZsW8UOqKE51H5sbCNHu+wdBlh2CkW20ww4yhfYrlvLWioxij6DPRO9w==}
+    dev: false
 
   /@sveltejs/adapter-vercel/1.0.0-next.81:
     resolution: {integrity: sha512-cuNolQSqabSs97J2hn9bnRDOscihIO+VEYltsc+POLU/ecv7pbUm1qdRakeG3+ehK1mfZ9dub6vEVuLKhm+Qng==}
